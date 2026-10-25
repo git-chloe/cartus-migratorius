@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6642f5fc13a948757b6f9968db866db4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    position:fixed;
+    bottom:35px;
+    right:20px;
+    z-index:9999;
+    background:rgba(255,255,255,.97);
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    padding:12px 14px;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    line-height:1.8;
+    color:#263238;
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
+    pointer-events:none;
+">
+
+<b>🛒 The Woodroffe Witness Stand</b>
+
+<div>
+<span style="color:#0f766e;">●</span>
+1701 Woodroffe — 6 reports
+</div>
+
+<div>
+<span style="color:#ea8c38;">●</span>
+1645 Woodroffe — 2 reports
+</div>
+
+<div>
+<span style="color:#7c3aed;">┄┄</span>
+Straight-line separation: 225.3 m
+</div>
+
+<div>
+<span style="color:#64748b;">●</span>
+Other Park locations (optional)
+</div>
+
+<div style="
+    border-top:1px solid #e5e7eb;
+    margin-top:5px;
+    padding-top:5px;
+    font-size:10px;
+    color:#64748b;
+    line-height:1.4;
+">
+    Episode starts: 2 days apart.<br>
+    Eight reports; two estimated episodes.<br>
+    No shared cart or incident established.
+</div>
+</div>
+    
+            <div class="folium-map" id="map_6642f5fc13a948757b6f9968db866db4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6642f5fc13a948757b6f9968db866db4 = L.map(
+                "map_6642f5fc13a948757b6f9968db866db4",
+                {
+                    center: [45.326177106710716, -75.74386738524476],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_6642f5fc13a948757b6f9968db866db4);
+
+            
+
+        
+    
+            var tile_layer_db7426b7f41841fe09672921547a9b9e = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 16,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri, HERE, Garmin, OpenStreetMap contributors, GIS user community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_db7426b7f41841fe09672921547a9b9e.addTo(map_6642f5fc13a948757b6f9968db866db4);
+        
+    
+            var feature_group_c1a0dee1cb6e44675b7bdc49f98276ea = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_735626c6d7fb2163575144d6953a9c13 = L.circleMarker(
+                [45.29378281484431, -75.89767512757076],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_735626c6d7fb2163575144d6953a9c13.bindTooltip(
+                `<div>
+                     100 Charlie Rogers Pl
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af49d4ca23744defa29a9053099b006d = L.circleMarker(
+                [45.42238022707726, -75.66636835627504],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_af49d4ca23744defa29a9053099b006d.bindTooltip(
+                `<div>
+                     1094 North River Rd
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab13145c8c7bfb101afcfcb57d502fd1 = L.circleMarker(
+                [45.26243613499288, -75.9360266120333],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_ab13145c8c7bfb101afcfcb57d502fd1.bindTooltip(
+                `<div>
+                     11 Crantham Cres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff0c8c3c6f169c8e2ca45eb4d80093f9 = L.circleMarker(
+                [45.35409127668425, -75.65910819264744],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_ff0c8c3c6f169c8e2ca45eb4d80093f9.bindTooltip(
+                `<div>
+                     1155 Plante Dr
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9bdf09ebb23ad62ae124eb071193de58 = L.circleMarker(
+                [45.33209234346064, -75.78098761325832],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_9bdf09ebb23ad62ae124eb071193de58.bindTooltip(
+                `<div>
+                     131 Greenbank Rd
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79382bf628ad851e66907ccd6b93c397 = L.circleMarker(
+                [45.41198706264291, -75.65979336534632],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_79382bf628ad851e66907ccd6b93c397.bindTooltip(
+                `<div>
+                     1460 Riverside Dr
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8c79654ae7f9b3c1ba117eeca00a28a = L.circleMarker(
+                [45.37515083704155, -75.65678492578436],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_d8c79654ae7f9b3c1ba117eeca00a28a.bindTooltip(
+                `<div>
+                     148 Colliston Cres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d270909adb75fc544d850b6139a3f40 = L.circleMarker(
+                [45.37170711767057, -75.73691158618009],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_0d270909adb75fc544d850b6139a3f40.bindTooltip(
+                `<div>
+                     1500 90 Caldwell Ave
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5425506e9fcd829c077b74efe5602b21 = L.circleMarker(
+                [45.40232459799853, -75.73788204829427],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_5425506e9fcd829c077b74efe5602b21.bindTooltip(
+                `<div>
+                     1565 Scott St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_22cd190008abbae2629916e3c3fa221c = L.circleMarker(
+                [45.42747296639832, -75.60720813499209],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_22cd190008abbae2629916e3c3fa221c.bindTooltip(
+                `<div>
+                     1580 Telesat Crt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c6b250f496686fb9729ab670c42c47f9 = L.circleMarker(
+                [45.40547268087249, -75.64390880264233],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_c6b250f496686fb9729ab670c42c47f9.bindTooltip(
+                `<div>
+                     1640 Devon St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_076cfa028cdc8256178a7185b1e69409 = L.circleMarker(
+                [45.34259167025552, -75.62780935293692],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_076cfa028cdc8256178a7185b1e69409.bindTooltip(
+                `<div>
+                     165 Meandering Brook Dr
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9201b3e7f76c9d381f72732b075d0eab = L.circleMarker(
+                [45.457581609136426, -75.5220674508288],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_9201b3e7f76c9d381f72732b075d0eab.bindTooltip(
+                `<div>
+                     1705 Orléans Blvd
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30f6fb9b8f50401c6e9508366d641bf8 = L.circleMarker(
+                [45.461519172712, -75.50523606641966],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_30f6fb9b8f50401c6e9508366d641bf8.bindTooltip(
+                `<div>
+                     1921 Wildflower Dr
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_228570244a7c839a879b51a251f75cca = L.circleMarker(
+                [45.421535179849016, -75.69322263293415],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_228570244a7c839a879b51a251f75cca.bindTooltip(
+                `<div>
+                     26 Qualicum St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c626d09dd303d997b20340d2af9b390 = L.circleMarker(
+                [45.16320815622694, -75.93891189286276],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_4c626d09dd303d997b20340d2af9b390.bindTooltip(
+                `<div>
+                     2890 Munster Rd
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f35efeef69e7764681b674a8c31b4a1 = L.circleMarker(
+                [45.35997041706299, -75.64301750032098],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_5f35efeef69e7764681b674a8c31b4a1.bindTooltip(
+                `<div>
+                     300 Verdon Priv
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3f19bf6f8cb0a2a08d0cc8b2e9b919c = L.circleMarker(
+                [45.2788966355, -75.745927787],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_f3f19bf6f8cb0a2a08d0cc8b2e9b919c.bindTooltip(
+                `<div>
+                     32 North Harrow Dr
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_09d32c27c589b0ebef4864020cc4a159 = L.circleMarker(
+                [45.44146110980189, -75.65872220665926],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_09d32c27c589b0ebef4864020cc4a159.bindTooltip(
+                `<div>
+                     325 St-Denis St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37a1a01c2bdbee52bdb92e3fb87273c9 = L.circleMarker(
+                [45.27321756712929, -75.85337555000277],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_37a1a01c2bdbee52bdb92e3fb87273c9.bindTooltip(
+                `<div>
+                     447 Coldwater Cres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f1505a97680e86cfd127c8e5e342963b = L.circleMarker(
+                [45.42947990700743, -75.64787245462908],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_f1505a97680e86cfd127c8e5e342963b.bindTooltip(
+                `<div>
+                     469 Donald St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23e9fae9ec90a892ebb8f44b1d3a7d81 = L.circleMarker(
+                [45.40847764293435, -75.72841370864784],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_23e9fae9ec90a892ebb8f44b1d3a7d81.bindTooltip(
+                `<div>
+                     51 Stonehurst Ave
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f50ef1a8b2e239f99bc5d5a76f17f59 = L.circleMarker(
+                [45.45458905150219, -75.54058323928834],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_9f50ef1a8b2e239f99bc5d5a76f17f59.bindTooltip(
+                `<div>
+                     6160 Orléans Blvd
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20567c93ad51c79846f86939e97462ca = L.circleMarker(
+                [45.40253334755667, -75.68303619619184],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_20567c93ad51c79846f86939e97462ca.bindTooltip(
+                `<div>
+                     641 O&#x27;Connor St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d5183ee61bd369933402535d0c1b4d4 = L.circleMarker(
+                [45.40471969338331, -75.69904525326336],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_1d5183ee61bd369933402535d0c1b4d4.bindTooltip(
+                `<div>
+                     75 Glendale Ave
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aaf35f390a21df0e2a18815b16929e24 = L.circleMarker(
+                [45.43350424389573, -75.63765958861781],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_aaf35f390a21df0e2a18815b16929e24.bindTooltip(
+                `<div>
+                     901 Trojan Ave
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7b74027507ede5d5a7de0f7a4d32b06 = L.circleMarker(
+                [45.4339440433647, -75.67747356757931],
+                {"bubblingMouseEvents": true, "color": "#64748b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64748b", "fillOpacity": 0.65, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1a0dee1cb6e44675b7bdc49f98276ea);
+        
+    
+            circle_marker_a7b74027507ede5d5a7de0f7a4d32b06.bindTooltip(
+                `<div>
+                     99 Cobourg St
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_36534f50e15423cc5885af0f92f760a5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2ea8004be44220d1d270889118a52b04 = L.circleMarker(
+                [45.32691173433927, -75.74287496574816],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0f766e", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_36534f50e15423cc5885af0f92f760a5);
+        
+    
+        var popup_c508d2d6fb2e0bb338aa879157f0b9bb = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_39343bd7af644de7514513fb2228df8f = $(`<div id="html_39343bd7af644de7514513fb2228df8f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial;line-height:1.7;                 min-width:210px;">         <b>🛒 1701 Woodroffe Ave</b><br>         <b>Park reports:</b> 6<br>         <b>Estimated episodes:</b> 1<br>         <b>First report:</b>         2025-04-21<br>         <b>Last report:</b>         2025-05-08<br>         <hr>         <small>             One reported location; individual             carts have not been identified.         </small>     </div>     </div>`)[0];
+                popup_c508d2d6fb2e0bb338aa879157f0b9bb.setContent(html_39343bd7af644de7514513fb2228df8f);
+            
+        
+
+        circle_marker_2ea8004be44220d1d270889118a52b04.bindPopup(popup_c508d2d6fb2e0bb338aa879157f0b9bb)
+        ;
+
+        
+    
+    
+            circle_marker_2ea8004be44220d1d270889118a52b04.bindTooltip(
+                `<div>
+                     1701 Woodroffe Ave — 6 reports
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_421c3c8e58ddc76e7015f47253aa3517 = L.circleMarker(
+                [45.32544247908217, -75.74485980474135],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea8c38", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_36534f50e15423cc5885af0f92f760a5);
+        
+    
+        var popup_8967865196470862b2b508a02fbebf19 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_87508f5e413a1604c940e2c88e08a5ce = $(`<div id="html_87508f5e413a1604c940e2c88e08a5ce" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial;line-height:1.7;                 min-width:210px;">         <b>🛒 1645 Woodroffe Ave</b><br>         <b>Park reports:</b> 2<br>         <b>Estimated episodes:</b> 1<br>         <b>First report:</b>         2025-04-23<br>         <b>Last report:</b>         2025-04-23<br>         <hr>         <small>             One reported location; individual             carts have not been identified.         </small>     </div>     </div>`)[0];
+                popup_8967865196470862b2b508a02fbebf19.setContent(html_87508f5e413a1604c940e2c88e08a5ce);
+            
+        
+
+        circle_marker_421c3c8e58ddc76e7015f47253aa3517.bindPopup(popup_8967865196470862b2b508a02fbebf19)
+        ;
+
+        
+    
+    
+            circle_marker_421c3c8e58ddc76e7015f47253aa3517.bindTooltip(
+                `<div>
+                     1645 Woodroffe Ave — 2 reports
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e94f25e9dd17cc40c10282a5a4f4fb0c = L.polyline(
+                [[45.32691173433927, -75.74287496574816], [45.32544247908217, -75.74485980474135]],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": "7,6", "dashOffset": null, "fill": false, "fillColor": "#7c3aed", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_36534f50e15423cc5885af0f92f760a5);
+        
+    
+            poly_line_e94f25e9dd17cc40c10282a5a4f4fb0c.bindTooltip(
+                `<div>
+                     225.3 metres straight-line | 2 days between episode starts
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_36534f50e15423cc5885af0f92f760a5.addTo(map_6642f5fc13a948757b6f9968db866db4);
+        
+    
+            var layer_control_3ca9551ce2b34e64a79d8033b4824971_layers = {
+                base_layers : {
+                    "Esri Light Gray" : tile_layer_db7426b7f41841fe09672921547a9b9e,
+                },
+                overlays :  {
+                    "Other Park Maintenance locations (27)" : feature_group_c1a0dee1cb6e44675b7bdc49f98276ea,
+                    "The Woodroffe witnesses" : feature_group_36534f50e15423cc5885af0f92f760a5,
+                },
+            };
+            let layer_control_3ca9551ce2b34e64a79d8033b4824971 = L.control.layers(
+                layer_control_3ca9551ce2b34e64a79d8033b4824971_layers.base_layers,
+                layer_control_3ca9551ce2b34e64a79d8033b4824971_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_6642f5fc13a948757b6f9968db866db4);
+
+        
+    
+            map_6642f5fc13a948757b6f9968db866db4.fitBounds(
+                [[45.32544247908217, -75.74485980474135], [45.32691173433927, -75.74287496574816]],
+                {"maxZoom": 15, "padding": [90, 90]}
+            );
+        
+</script>
+</html>

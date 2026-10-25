@@ -1,0 +1,6 @@
+# Core public summary script and synthetic tests.
+pandas>=2.1,<4
+numpy>=1.26,<3
+pytest>=8,<10
+# Full Colab notebook also uses matplotlib, folium, branca, scikit-learn,
+# requests, and Overture extraction tooling; see analysis/README.md.

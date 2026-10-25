@@ -1,0 +1,3981 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9e788bcb284c2f92ce9726d4fab303fc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+</head>
+<body>
+    
+    
+<div style="
+    position:fixed;
+    bottom:40px;
+    right:12px;
+    z-index:9999;
+    background:rgba(255,255,255,0.96);
+    padding:12px 15px;
+    border:1px solid #cccccc;
+    border-radius:7px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.12);
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    color:#333;
+    line-height:1.9;
+">
+<b>🛒 Where's Wheeldo?</b>
+<hr style="margin:5px 0;border:0;
+           border-top:1px solid #ddd;">
+<span style="color:#94A3B8;">●</span>
+Other reported locations<br>
+<span style="color:#D88B32;">●</span>
+Top 10 isolated locations<br>
+⭐ Lone Wheel frontrunner<br>
+<span style="font-size:10px;color:#666;">
+Dashed line = straight-line separation
+</span>
+</div>
+    
+            <div class="folium-map" id="map_9e788bcb284c2f92ce9726d4fab303fc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9e788bcb284c2f92ce9726d4fab303fc = L.map(
+                "map_9e788bcb284c2f92ce9726d4fab303fc",
+                {
+                    center: [45.42, -75.69],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+
+            
+
+        
+    
+            var tile_layer_dd3842825230057d159e9579f34b3ecd = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 16,
+  "maxNativeZoom": 16,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri and contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dd3842825230057d159e9579f34b3ecd.addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topright",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+        
+    
+            var feature_group_49e043ab869573be9c76182f2225c962 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ea9641749ae26e8072f7040661a091ce = L.circleMarker(
+                [45.31294717447019, -75.82880303893975],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ea9641749ae26e8072f7040661a091ce.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b00b7bc745961cfe649b68652d6a426b = L.circleMarker(
+                [45.34539142667894, -75.76987372394692],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b00b7bc745961cfe649b68652d6a426b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b94cfcae85c41f3e2005b5e41c82e48 = L.circleMarker(
+                [45.29237478935324, -75.89742319380767],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_6b94cfcae85c41f3e2005b5e41c82e48.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9fb0684a62b9de15e6fa8204062d05b9 = L.circleMarker(
+                [45.33903882287797, -75.72599072172027],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9fb0684a62b9de15e6fa8204062d05b9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8d0dd320506cd73c4a172579e1ca3aee = L.circleMarker(
+                [45.33496291511395, -75.74844046509774],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8d0dd320506cd73c4a172579e1ca3aee.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4740f2483e9d6487f259465ec04b4b3 = L.circleMarker(
+                [45.2778229042225, -75.85881999711694],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a4740f2483e9d6487f259465ec04b4b3.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97d5c0033c6c66df5a2d678c7d9b78e6 = L.circleMarker(
+                [45.29378281484431, -75.89767512757076],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_97d5c0033c6c66df5a2d678c7d9b78e6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ee96b56c66140de513bbfd4dcce034b = L.circleMarker(
+                [45.3459159791821, -75.76369570942816],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7ee96b56c66140de513bbfd4dcce034b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5dd0e4baf0448303795e9f84cf82a52 = L.circleMarker(
+                [45.34571844733284, -75.72654477137306],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c5dd0e4baf0448303795e9f84cf82a52.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_810dff1d4a4ae017bd14adfd04d5c207 = L.circleMarker(
+                [45.27433220028309, -75.86527237828464],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_810dff1d4a4ae017bd14adfd04d5c207.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb2b7864e1c695f673f228f85cf2f5f9 = L.circleMarker(
+                [45.36761916749647, -75.66950289810825],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_fb2b7864e1c695f673f228f85cf2f5f9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9f2640e2f9ca7263785da5c4742d230 = L.circleMarker(
+                [45.45622720585469, -75.4997718738024],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d9f2640e2f9ca7263785da5c4742d230.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_897b7f0d87836bfe4e2a144acc58e518 = L.circleMarker(
+                [45.37612646345132, -75.7348461554894],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_897b7f0d87836bfe4e2a144acc58e518.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b16edf5f0dde349aac2b44b5e53455f6 = L.circleMarker(
+                [45.44116302870537, -75.4977218713094],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b16edf5f0dde349aac2b44b5e53455f6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65a05d7462e3ef04e96afd58d0c46bfd = L.circleMarker(
+                [45.36776349482104, -75.67030643156195],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_65a05d7462e3ef04e96afd58d0c46bfd.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06d4ed6bb33e272a3ca412cf8c75bd44 = L.circleMarker(
+                [45.378151431048266, -75.72648459345032],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_06d4ed6bb33e272a3ca412cf8c75bd44.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25af8329403bca11202d3173b7f0cd45 = L.circleMarker(
+                [45.373034377962426, -75.62038824634543],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_25af8329403bca11202d3173b7f0cd45.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b68dfa78eaf851cd55df0aeb2b7108c7 = L.circleMarker(
+                [45.42238022707726, -75.66636835627504],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b68dfa78eaf851cd55df0aeb2b7108c7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c20ea335293dfc725795682a3fee9142 = L.circleMarker(
+                [45.26243613499288, -75.9360266120333],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c20ea335293dfc725795682a3fee9142.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70d1d74e18b342f9f5bc4245dc181e72 = L.circleMarker(
+                [45.3685079605261, -75.74427648046442],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_70d1d74e18b342f9f5bc4245dc181e72.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f45a2d495fd38984ae415c008c994e2 = L.circleMarker(
+                [45.3770250690489, -75.7253425207583],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8f45a2d495fd38984ae415c008c994e2.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d89ce83a174f5f60873428ad8968633 = L.circleMarker(
+                [45.43471363162706, -75.69582232011734],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3d89ce83a174f5f60873428ad8968633.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3284a018dff7b721341350c29a1df71 = L.circleMarker(
+                [45.26857381341243, -75.71295358915958],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b3284a018dff7b721341350c29a1df71.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eec6e10cf50d5bf9424c2cede1bd9d04 = L.circleMarker(
+                [45.42648185600606, -75.63176791293711],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_eec6e10cf50d5bf9424c2cede1bd9d04.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_233e97c391772195a2628278ce17ce34 = L.circleMarker(
+                [45.35144355737142, -75.65178108985698],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_233e97c391772195a2628278ce17ce34.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_19521e64b0838d5010682a7d1b04cc8a = L.circleMarker(
+                [45.35409127668425, -75.65910819264744],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_19521e64b0838d5010682a7d1b04cc8a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c445e4c751bb85cfbe8502cb32ec2701 = L.circleMarker(
+                [45.36488206172305, -75.75002028330283],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c445e4c751bb85cfbe8502cb32ec2701.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03803b75ccd0f23dc02d400864cc83ae = L.circleMarker(
+                [45.26863368464709, -75.71274059860572],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_03803b75ccd0f23dc02d400864cc83ae.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a09282f45e0b167701f9b270c6e201e0 = L.circleMarker(
+                [45.369057766012546, -75.66589003478259],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a09282f45e0b167701f9b270c6e201e0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d60943143757bf9e2eecc756dab33f14 = L.circleMarker(
+                [45.43107856796156, -75.6084481303772],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d60943143757bf9e2eecc756dab33f14.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc9853d15300d8a06fe740c3cb25c49c = L.circleMarker(
+                [45.37398310935298, -75.70827282342898],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_cc9853d15300d8a06fe740c3cb25c49c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_12c02d958cbfed05f7761644979af1fc = L.circleMarker(
+                [45.380650883335896, -75.72863535404183],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_12c02d958cbfed05f7761644979af1fc.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fcca793b1893218ca57a3ac7dacedac2 = L.circleMarker(
+                [45.35656517825898, -75.76185263195786],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_fcca793b1893218ca57a3ac7dacedac2.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c5742ef7940a0df5f49812e1c4660ad = L.circleMarker(
+                [45.3712668386018, -75.66115426702386],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5c5742ef7940a0df5f49812e1c4660ad.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d652f271a06bd5857a698c86f61c4e7 = L.circleMarker(
+                [45.42266190667666, -75.62657912664436],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_1d652f271a06bd5857a698c86f61c4e7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8a17f77f071352be1095149f27bc2788 = L.circleMarker(
+                [45.37989451727016, -75.73034795123645],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8a17f77f071352be1095149f27bc2788.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_96c6f536f6f8e0f88102ea3c6b96d812 = L.circleMarker(
+                [45.36465658121839, -75.73404230280593],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_96c6f536f6f8e0f88102ea3c6b96d812.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_508592e6817b88499f9b852134ed61a0 = L.circleMarker(
+                [45.33209234346064, -75.78098761325832],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_508592e6817b88499f9b852134ed61a0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9784f66a445bff43e8b769f36f026350 = L.circleMarker(
+                [45.371984453197264, -75.65803162722683],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9784f66a445bff43e8b769f36f026350.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a785c8ac4b4ab9f16bee3543fbeed8a5 = L.circleMarker(
+                [45.36686169897839, -75.73845923720842],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a785c8ac4b4ab9f16bee3543fbeed8a5.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b50051dee6ee395ea74fdf1b7749183 = L.circleMarker(
+                [45.310780079191744, -75.8958721383714],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0b50051dee6ee395ea74fdf1b7749183.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_774eedc83198aad3c93f1f2c9c4fc5e0 = L.circleMarker(
+                [45.36142865281376, -75.73975736796413],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_774eedc83198aad3c93f1f2c9c4fc5e0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a96c42e60b5e4427218d33047b86e8b = L.circleMarker(
+                [45.334942572257454, -75.74845359926984],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0a96c42e60b5e4427218d33047b86e8b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f8e4a960985a27925fa2d5107248c8d = L.circleMarker(
+                [45.341886350010654, -75.63690001390562],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3f8e4a960985a27925fa2d5107248c8d.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4058553d45f5ab7babaffd5edb5b1067 = L.circleMarker(
+                [45.40743646177802, -75.7261259585104],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4058553d45f5ab7babaffd5edb5b1067.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58a4eabefd178e36fdbf8afdd73f6dd7 = L.circleMarker(
+                [45.421535179849016, -75.69322263293415],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_58a4eabefd178e36fdbf8afdd73f6dd7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3cda7248ec8407b35afb9660d969ebd = L.circleMarker(
+                [45.40904454756331, -75.72179784760036],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b3cda7248ec8407b35afb9660d969ebd.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_59a23939f077966ec974a9f21fe66278 = L.circleMarker(
+                [45.408315000136206, -75.71308016285549],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_59a23939f077966ec974a9f21fe66278.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_816aa4136cac7de04f35c8ebaf398b67 = L.circleMarker(
+                [45.37999598797674, -75.74074073527598],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_816aa4136cac7de04f35c8ebaf398b67.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7928f56c46b8650a89a8f4181b364c85 = L.circleMarker(
+                [45.29649955582926, -75.88062018129904],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7928f56c46b8650a89a8f4181b364c85.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9a3254e2f98f25c8e0e4b880d21a4689 = L.circleMarker(
+                [45.34203025207507, -75.75667583589825],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9a3254e2f98f25c8e0e4b880d21a4689.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2661392430b4ec7bb1ce3d519c0a59c1 = L.circleMarker(
+                [45.41198706264291, -75.65979336534632],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2661392430b4ec7bb1ce3d519c0a59c1.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d86d674b01b47951954ad773baceed99 = L.circleMarker(
+                [45.37515083704155, -75.65678492578436],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d86d674b01b47951954ad773baceed99.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_132ffe8b6f23c11aaeffa03a4d12fb1a = L.circleMarker(
+                [45.36584782154034, -75.72549055429545],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_132ffe8b6f23c11aaeffa03a4d12fb1a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc673b43731eed54e6e1fbbd7d8c9e3f = L.circleMarker(
+                [45.26415228403093, -75.7455873643757],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_dc673b43731eed54e6e1fbbd7d8c9e3f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42db2e0a3d1e1d9b28d7099e37a71d2c = L.circleMarker(
+                [45.42151822842689, -75.6975797878907],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_42db2e0a3d1e1d9b28d7099e37a71d2c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_939e73636dd66f392c270caee53fcc33 = L.circleMarker(
+                [45.37170711767057, -75.73691158618009],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_939e73636dd66f392c270caee53fcc33.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_efd56ae0744d222f3a6bf18ceaa90d8e = L.circleMarker(
+                [45.36004659898433, -75.74293421376518],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_efd56ae0744d222f3a6bf18ceaa90d8e.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_162bf62d87432a492bad7b089f12c373 = L.circleMarker(
+                [45.376099848797246, -75.64934297848866],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_162bf62d87432a492bad7b089f12c373.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c50bb7645b7ef60d3f992371b5913c4b = L.circleMarker(
+                [45.35074599664463, -75.7341015271524],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c50bb7645b7ef60d3f992371b5913c4b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_629cf90c22ddef089c5a02309150244c = L.circleMarker(
+                [45.40232459799853, -75.73788204829427],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_629cf90c22ddef089c5a02309150244c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1830e432241595b17794e0d7709fd188 = L.circleMarker(
+                [45.27582986030575, -75.74411326798656],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_1830e432241595b17794e0d7709fd188.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ddc0d526ccf15d79309c95d24ec7e02 = L.circleMarker(
+                [45.42747296639832, -75.60720813499209],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_6ddc0d526ccf15d79309c95d24ec7e02.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c2e3f1d290d839fe701999f87b63715 = L.circleMarker(
+                [45.372862060936, -75.73380197785606],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3c2e3f1d290d839fe701999f87b63715.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_254d1a324cacb4e426ad6cbfdbb76956 = L.circleMarker(
+                [45.42537517746899, -75.60698389128017],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_254d1a324cacb4e426ad6cbfdbb76956.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec0c398575add59f89b5a99372ed5ebf = L.circleMarker(
+                [45.34892821076129, -75.74093293808002],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ec0c398575add59f89b5a99372ed5ebf.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_379802a1ce437cee047d1fdb5f83f568 = L.circleMarker(
+                [45.42793082564418, -75.68233236802791],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_379802a1ce437cee047d1fdb5f83f568.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d01deb289551d6a5427f61d4e8deb091 = L.circleMarker(
+                [45.45965873836432, -75.52818775724911],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d01deb289551d6a5427f61d4e8deb091.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d873da14432fe7710f1d5807167ede5a = L.circleMarker(
+                [45.40547268087249, -75.64390880264233],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d873da14432fe7710f1d5807167ede5a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f220b4325c5bb19d36188e18fe37f6b9 = L.circleMarker(
+                [45.32544247908217, -75.74485980474135],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_f220b4325c5bb19d36188e18fe37f6b9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c4068989fda381a4eabc2ba8a529003 = L.circleMarker(
+                [45.34259167025552, -75.62780935293692],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4c4068989fda381a4eabc2ba8a529003.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c498f06b9d95634e942a7a43aca98d6b = L.circleMarker(
+                [45.2776779524383, -75.85954097568593],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c498f06b9d95634e942a7a43aca98d6b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd0f815f9a23c640aa3ff16fa5102738 = L.circleMarker(
+                [45.40699397327359, -75.7317218547437],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_dd0f815f9a23c640aa3ff16fa5102738.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48601802ca5bb6884588df8b767e0b3c = L.circleMarker(
+                [45.32691173433927, -75.74287496574816],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_48601802ca5bb6884588df8b767e0b3c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f486ff3a8571f14534fa96713527204 = L.circleMarker(
+                [45.457581609136426, -75.5220674508288],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7f486ff3a8571f14534fa96713527204.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8a0acfdcae3d9c8213c6dd9d0a3c67f = L.circleMarker(
+                [45.4173423867147, -75.60048926269667],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_f8a0acfdcae3d9c8213c6dd9d0a3c67f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4466dde9613bc440873fd9a75b527a0 = L.circleMarker(
+                [45.419692966799744, -75.61031772557388],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d4466dde9613bc440873fd9a75b527a0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7de2e300cddb201acf7e7cfebd145afa = L.circleMarker(
+                [45.38900088105199, -75.74384485469368],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7de2e300cddb201acf7e7cfebd145afa.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c6a7754e263adc91ec223cdee49a7ca = L.circleMarker(
+                [45.461519172712, -75.50523606641966],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0c6a7754e263adc91ec223cdee49a7ca.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23cf3c69a3a9b79ea4211b007b55705a = L.circleMarker(
+                [45.41943643410516, -75.59637764053518],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_23cf3c69a3a9b79ea4211b007b55705a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d9ea14f3efa16c623b44a617cc3ac49 = L.circleMarker(
+                [45.31553857161389, -75.82799297661869],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5d9ea14f3efa16c623b44a617cc3ac49.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db3b635806a772f481443a135e1da0f1 = L.circleMarker(
+                [45.349345635513885, -75.73422197341583],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_db3b635806a772f481443a135e1da0f1.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3df8de591096f6492269659516755b60 = L.circleMarker(
+                [45.28315590855635, -75.91181899897383],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3df8de591096f6492269659516755b60.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fefc0a52c90c663468ca9a89a80e4a4e = L.circleMarker(
+                [45.4362739494538, -75.67977377573226],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_fefc0a52c90c663468ca9a89a80e4a4e.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c86e7fa19511bf11dc178417bd5abf22 = L.circleMarker(
+                [45.338011373099896, -75.72598443830633],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c86e7fa19511bf11dc178417bd5abf22.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3cf693bba58cee5c72fd6fc4789e41a0 = L.circleMarker(
+                [45.29144081248241, -75.89749409289207],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3cf693bba58cee5c72fd6fc4789e41a0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dec62672e4cabf5d6dbb378aaf568129 = L.circleMarker(
+                [45.4419746732259, -75.66900518771418],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_dec62672e4cabf5d6dbb378aaf568129.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_273d3cfe53547c01e504d55a3793a9ce = L.circleMarker(
+                [45.41217626618466, -75.71193901396799],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_273d3cfe53547c01e504d55a3793a9ce.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_463125709bd1946cf18c75f5d7511dad = L.circleMarker(
+                [45.43544314585441, -75.66333501097697],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_463125709bd1946cf18c75f5d7511dad.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49e586177cebfc472df104f9bacbcbc0 = L.circleMarker(
+                [45.438123867094106, -75.60071189743907],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_49e586177cebfc472df104f9bacbcbc0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e9922950639f7a5b9388666ce02827ef = L.circleMarker(
+                [45.43629565290611, -75.69252182713889],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e9922950639f7a5b9388666ce02827ef.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff17b4d73f376192a214bf1f830dd850 = L.circleMarker(
+                [45.438578538737374, -75.59920127368676],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ff17b4d73f376192a214bf1f830dd850.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_deb5cb57f9a576621edd0ae3bf75742e = L.circleMarker(
+                [45.29450978306348, -75.8940942843806],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_deb5cb57f9a576621edd0ae3bf75742e.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1f997b4deaf99f96a579dd7374bfc4d = L.circleMarker(
+                [45.41434105903337, -75.7055661588186],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e1f997b4deaf99f96a579dd7374bfc4d.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04a2bd77d8d6b2da2f7bbc84cdfe4821 = L.circleMarker(
+                [45.43057834477947, -75.68745452489809],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_04a2bd77d8d6b2da2f7bbc84cdfe4821.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dbedb58b36c93aab427ae71a6f014982 = L.circleMarker(
+                [45.29162395873374, -75.89782145561568],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_dbedb58b36c93aab427ae71a6f014982.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e885233561ae6cf4a11a1c31b3dae88 = L.circleMarker(
+                [45.3153773472056, -75.89327807151868],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0e885233561ae6cf4a11a1c31b3dae88.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e67864770b466078cdcb4a8434f2840 = L.circleMarker(
+                [45.38972895163738, -75.61645098627983],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0e67864770b466078cdcb4a8434f2840.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc1d332bd9baa4469e9e1e50d60dd2f5 = L.circleMarker(
+                [45.35110523144166, -75.74244668590049],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_cc1d332bd9baa4469e9e1e50d60dd2f5.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b603619d6ae2e6fd0fc476cde11fed8c = L.circleMarker(
+                [45.44325220474189, -75.6927149843647],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b603619d6ae2e6fd0fc476cde11fed8c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_323f1cd480739837abaef7c58c19bf28 = L.circleMarker(
+                [45.43203197932459, -75.68873156768532],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_323f1cd480739837abaef7c58c19bf28.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dcb8d8a95f7d129c03f7d47a966c84f9 = L.circleMarker(
+                [45.38762006779866, -75.74540548958765],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_dcb8d8a95f7d129c03f7d47a966c84f9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee59d90d244571bc85a16542a05808f3 = L.circleMarker(
+                [45.41693583747785, -75.69955507316865],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ee59d90d244571bc85a16542a05808f3.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e38a621a4d441aa1b6abb21af9dd0925 = L.circleMarker(
+                [45.3344082703735, -75.76798219539673],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e38a621a4d441aa1b6abb21af9dd0925.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a1e6b57199cc54a201fed48f1c9125b = L.circleMarker(
+                [45.26510166228083, -75.70974539507127],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4a1e6b57199cc54a201fed48f1c9125b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_678e9ee9014389dfe6118f575f35d7d4 = L.circleMarker(
+                [45.36540320033487, -75.7203007267267],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_678e9ee9014389dfe6118f575f35d7d4.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e88ae0073458dd28589fdb473e72731 = L.circleMarker(
+                [45.28892188679348, -75.7326017518728],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_1e88ae0073458dd28589fdb473e72731.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0b81a89e2c65cad3bd1caac57735505 = L.circleMarker(
+                [45.4307708230605, -75.6924142459938],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d0b81a89e2c65cad3bd1caac57735505.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75ade31c2ea2a796706c3f441f202608 = L.circleMarker(
+                [45.47175240315116, -75.45272924784636],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_75ade31c2ea2a796706c3f441f202608.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a5a1b4f0a7fac76438d66451c128fe9 = L.circleMarker(
+                [45.39952069183199, -75.74162204842035],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2a5a1b4f0a7fac76438d66451c128fe9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06e8e8509422393b1d13c299cf3b7180 = L.circleMarker(
+                [45.421535179849016, -75.69322263293415],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_06e8e8509422393b1d13c299cf3b7180.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ad9379e56c1cb77be09fe14254a9bc27 = L.circleMarker(
+                [45.48702777211008, -75.47442047277491],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ad9379e56c1cb77be09fe14254a9bc27.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4d17beda10b09a6e5577df911f21e19 = L.circleMarker(
+                [45.16320815622694, -75.93891189286276],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e4d17beda10b09a6e5577df911f21e19.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2dc8e13f2ef9cdd9e72d9ceca4b4edd7 = L.circleMarker(
+                [45.43695672927983, -75.65866652489015],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2dc8e13f2ef9cdd9e72d9ceca4b4edd7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa973fef6450b8f03042ecf88ddb7cf9 = L.circleMarker(
+                [45.36988878109966, -75.65424703529821],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_aa973fef6450b8f03042ecf88ddb7cf9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47ea7f4693842fe16cb4eb15a11ce769 = L.circleMarker(
+                [45.34306937379175, -75.73049701646642],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_47ea7f4693842fe16cb4eb15a11ce769.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a050a9bf5b4f8897c6dd66960afc3807 = L.circleMarker(
+                [45.35997041706299, -75.64301750032098],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a050a9bf5b4f8897c6dd66960afc3807.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee34c39892c6d47a903d1d8fa1578545 = L.circleMarker(
+                [45.349108372095344, -75.62752016859784],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ee34c39892c6d47a903d1d8fa1578545.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_312585d6f7e1c88a63ef563b17f56306 = L.circleMarker(
+                [45.41864346311797, -75.64699348429099],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_312585d6f7e1c88a63ef563b17f56306.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e1cda5c80adce4524000b7d86532cd3 = L.circleMarker(
+                [45.2788966355, -75.745927787],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5e1cda5c80adce4524000b7d86532cd3.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_57ecef22fca5d0d9b07074014ed73f1a = L.circleMarker(
+                [45.44146110980189, -75.65872220665926],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_57ecef22fca5d0d9b07074014ed73f1a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ff99c53a7792890c3892d179968b7fa = L.circleMarker(
+                [45.43378149798215, -75.65557424970991],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_1ff99c53a7792890c3892d179968b7fa.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2635f152d2280f4e23781c0b6b3b8d60 = L.circleMarker(
+                [45.43243080368112, -75.66542166135167],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2635f152d2280f4e23781c0b6b3b8d60.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf898f37ca48685b063443699eb1ce80 = L.circleMarker(
+                [45.33479007585056, -75.90765228884152],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_cf898f37ca48685b063443699eb1ce80.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af75d37fe9fa745d7935211481b21bd5 = L.circleMarker(
+                [45.43592959271274, -75.65495249821296],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_af75d37fe9fa745d7935211481b21bd5.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1cc3e8581c0ea898fc13fc4d9bb2ece0 = L.circleMarker(
+                [45.43526688184815, -75.6557776686851],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_1cc3e8581c0ea898fc13fc4d9bb2ece0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88553e8a51ea9f7aacfafac515841c01 = L.circleMarker(
+                [45.42487862704531, -75.67365526620297],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_88553e8a51ea9f7aacfafac515841c01.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97a8f0d86e7000245ac0cc0e1776f010 = L.circleMarker(
+                [45.438662389000335, -75.67845243074396],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_97a8f0d86e7000245ac0cc0e1776f010.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b41e4c768a4f17a28d8557014cd54eb = L.circleMarker(
+                [45.41862062880695, -75.70504581027222],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9b41e4c768a4f17a28d8557014cd54eb.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e1f12b0ebe4358454137b17bcaf520c = L.circleMarker(
+                [45.432949858666206, -75.66213539543578],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8e1f12b0ebe4358454137b17bcaf520c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4bc4bcf83a6f63a93e9b4af6e321b10a = L.circleMarker(
+                [45.39593118809321, -75.6785881850996],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4bc4bcf83a6f63a93e9b4af6e321b10a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_56538fd84ff2674c728ac07e8b06faaf = L.circleMarker(
+                [45.36275793589642, -75.79535550124729],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_56538fd84ff2674c728ac07e8b06faaf.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f27852618fb46b4f37a3914b3b65035d = L.circleMarker(
+                [45.34709600434133, -75.66827918706865],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_f27852618fb46b4f37a3914b3b65035d.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb1f17c5b483959b73782dfc24689cf3 = L.circleMarker(
+                [45.34674301367651, -75.66795572264165],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_bb1f17c5b483959b73782dfc24689cf3.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0da41391d51b8c206e07e325f9d917a6 = L.circleMarker(
+                [45.43534067962927, -75.65480519174248],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0da41391d51b8c206e07e325f9d917a6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74bb2740d336b2ed6848bbf1c8356d3f = L.circleMarker(
+                [45.32247737726927, -75.83450536402376],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_74bb2740d336b2ed6848bbf1c8356d3f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_448ebd4bd9a2766cc91b7a926a8286b4 = L.circleMarker(
+                [45.34452052032327, -75.6655189047925],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_448ebd4bd9a2766cc91b7a926a8286b4.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_468e7760e03c07318d9711406cf11ea0 = L.circleMarker(
+                [45.41919313406393, -75.63977775117579],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_468e7760e03c07318d9711406cf11ea0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c16ed52ad1755946320b5e16a2a85b40 = L.circleMarker(
+                [45.44172264367853, -75.52087878162901],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c16ed52ad1755946320b5e16a2a85b40.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0e1f623ae4be42d0848d29d1b4a0415 = L.circleMarker(
+                [45.42518121602006, -75.67258911989634],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d0e1f623ae4be42d0848d29d1b4a0415.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d636a715879bfc0117c816bb0918cf1a = L.circleMarker(
+                [45.39451571807052, -75.7499967938353],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d636a715879bfc0117c816bb0918cf1a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02ed3a7fde2ddca4605b544d3dd13d33 = L.circleMarker(
+                [45.3630768955627, -75.78879199992184],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_02ed3a7fde2ddca4605b544d3dd13d33.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_671bd71db1c95ef170d85f5e2cf8d9be = L.circleMarker(
+                [45.4433370992927, -75.47789194374332],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_671bd71db1c95ef170d85f5e2cf8d9be.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba54d20de39e33c076c589abefd33825 = L.circleMarker(
+                [45.45320525097864, -75.5120755103011],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ba54d20de39e33c076c589abefd33825.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8537841a70be604964bf546d905463cd = L.circleMarker(
+                [45.45299909853059, -75.51139267439974],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8537841a70be604964bf546d905463cd.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a20efaa7580356d8329e4c12ab0f7bb = L.circleMarker(
+                [45.31307547879103, -75.91594444050615],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3a20efaa7580356d8329e4c12ab0f7bb.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_43069c9bf1074904e8c7f8a25c230afa = L.circleMarker(
+                [45.3159346840088, -75.82858195324877],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_43069c9bf1074904e8c7f8a25c230afa.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4766bd856aa5ee31043521595eeb27e7 = L.circleMarker(
+                [45.35049705693909, -75.74388976205339],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4766bd856aa5ee31043521595eeb27e7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf203213f07ffd13d4d8b75946fa3c55 = L.circleMarker(
+                [45.427211337825824, -75.65032405362162],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_bf203213f07ffd13d4d8b75946fa3c55.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16039150dc39a914c0eba329c057983b = L.circleMarker(
+                [45.42821411385148, -75.65000413551635],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_16039150dc39a914c0eba329c057983b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc799cba72a235db1c3dcb2a22c0f9aa = L.circleMarker(
+                [45.3148831130372, -75.83362324039683],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_cc799cba72a235db1c3dcb2a22c0f9aa.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6625b3706089eace22d407b6b2669dca = L.circleMarker(
+                [45.30265937894233, -75.88005730342026],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_6625b3706089eace22d407b6b2669dca.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da3d9c20bd44f4b49f9009b38e921430 = L.circleMarker(
+                [45.38977135753093, -75.75847932160507],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_da3d9c20bd44f4b49f9009b38e921430.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c18c7963a48a68317a6f1f3754b8125 = L.circleMarker(
+                [45.27321756712929, -75.85337555000277],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5c18c7963a48a68317a6f1f3754b8125.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f87c89e928459840a7ccdfd6e751ceef = L.circleMarker(
+                [45.41914941145291, -75.63974342660143],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_f87c89e928459840a7ccdfd6e751ceef.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eca9cb5ac5413e0cf15528310688ead8 = L.circleMarker(
+                [45.42947990700743, -75.64787245462908],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_eca9cb5ac5413e0cf15528310688ead8.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fbe215bd21e31469ae7aa25f1789e29 = L.circleMarker(
+                [45.35600296638468, -75.74254864399565],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7fbe215bd21e31469ae7aa25f1789e29.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_92610f4e32cc6e0ff21f43ec15c30be0 = L.circleMarker(
+                [45.40751748813784, -75.6934686122327],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_92610f4e32cc6e0ff21f43ec15c30be0.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8338702989f4d8898165094c388d1c8a = L.circleMarker(
+                [45.28332115512288, -75.7334117316086],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_8338702989f4d8898165094c388d1c8a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c38268313b85f14e9c58fdcf77f9fb41 = L.circleMarker(
+                [45.35281860389464, -75.72399500363349],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c38268313b85f14e9c58fdcf77f9fb41.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_322f6b3dc1c9494bb749d5b72bf7c5fa = L.circleMarker(
+                [45.34130033201746, -75.62657897027775],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_322f6b3dc1c9494bb749d5b72bf7c5fa.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9a1cf240ab767a9ea305633173c0971 = L.circleMarker(
+                [45.40964919524762, -75.69480818077228],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d9a1cf240ab767a9ea305633173c0971.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48b6f3523cae7d36b6054c4aeb3921fe = L.circleMarker(
+                [45.48378044806406, -75.52064047348559],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_48b6f3523cae7d36b6054c4aeb3921fe.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b337c382ef03a0dea77743252297fb0c = L.circleMarker(
+                [45.40847764293435, -75.72841370864784],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b337c382ef03a0dea77743252297fb0c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1f83281bf6d61e6c76a03c1f38aeae4 = L.circleMarker(
+                [45.29339606792796, -75.8942502244636],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_c1f83281bf6d61e6c76a03c1f38aeae4.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25114ff3052a84062234834fc5a731db = L.circleMarker(
+                [45.31517904973726, -75.82920985444456],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_25114ff3052a84062234834fc5a731db.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_936298bdf0a608ee1ff164e7cc635a22 = L.circleMarker(
+                [45.40662741753116, -75.70294451502082],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_936298bdf0a608ee1ff164e7cc635a22.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c4f5fe4b9f302e1b154677a29e0182f = L.circleMarker(
+                [45.276808407340695, -75.8617931834545],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5c4f5fe4b9f302e1b154677a29e0182f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b82473eb72a30b463e068359b093f3ec = L.circleMarker(
+                [45.34594025013753, -75.76453255864084],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b82473eb72a30b463e068359b093f3ec.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38c929fb9981fc434ff247c0f65a69df = L.circleMarker(
+                [45.31473448827017, -75.59120626617579],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_38c929fb9981fc434ff247c0f65a69df.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a253037b98d8cb1ee86d7f756fc52d8 = L.circleMarker(
+                [45.35580512646946, -75.74357482525059],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3a253037b98d8cb1ee86d7f756fc52d8.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f56facb240b55f579c79997cbc635bc6 = L.circleMarker(
+                [45.31493278043215, -75.59130337405801],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_f56facb240b55f579c79997cbc635bc6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4233bc49f475bc4291340c24ff877b79 = L.circleMarker(
+                [45.4274975, -75.6408334],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_4233bc49f475bc4291340c24ff877b79.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15f3755f8ed3a706d85f32e73765e6fe = L.circleMarker(
+                [45.41187448750733, -75.70199116208431],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_15f3755f8ed3a706d85f32e73765e6fe.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6d320e9afdfd8f374cbfaf59e81eed94 = L.circleMarker(
+                [45.27488614900429, -75.72583562575876],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_6d320e9afdfd8f374cbfaf59e81eed94.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7213a76a7d1c3d65fc14d19fc03b2646 = L.circleMarker(
+                [45.39518048725586, -75.68451667025431],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7213a76a7d1c3d65fc14d19fc03b2646.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_caacd075fcf8dd6b86e44d7a5db22915 = L.circleMarker(
+                [45.38326186633613, -75.75600807328705],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_caacd075fcf8dd6b86e44d7a5db22915.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acf1672ea66ebf12dd538253eda97205 = L.circleMarker(
+                [45.45458905150219, -75.54058323928834],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_acf1672ea66ebf12dd538253eda97205.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0712c0c0c845de93bf4b45c31b020fa6 = L.circleMarker(
+                [45.26807201616262, -75.89300978415099],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0712c0c0c845de93bf4b45c31b020fa6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b43e7467358c97b3404c953e75a5f5f = L.circleMarker(
+                [45.4114020327086, -75.7033417597295],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3b43e7467358c97b3404c953e75a5f5f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_567f9f388d983cbf8cfe1a3f32abd3b1 = L.circleMarker(
+                [45.28083539989411, -75.75754537256827],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_567f9f388d983cbf8cfe1a3f32abd3b1.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9053787a3e0acdd27c26551e857355a = L.circleMarker(
+                [45.40253334755667, -75.68303619619184],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a9053787a3e0acdd27c26551e857355a.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02d9f905ddbbe5821d95ccdadf6995ac = L.circleMarker(
+                [45.4360640973054, -75.67992484765604],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_02d9f905ddbbe5821d95ccdadf6995ac.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0362a0951090aa7efc3eb136d18d37b6 = L.circleMarker(
+                [45.421535179849016, -75.69322263293415],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_0362a0951090aa7efc3eb136d18d37b6.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e38794954e5e57abc7f3643d9a814afd = L.circleMarker(
+                [45.355395645330894, -75.74454418183034],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e38794954e5e57abc7f3643d9a814afd.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17ba4ec336aaec530e1c3fb4cd6285a4 = L.circleMarker(
+                [45.40889155180758, -75.63873376106481],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_17ba4ec336aaec530e1c3fb4cd6285a4.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6832e80414005b60fc8f43e2d2445f8 = L.circleMarker(
+                [45.31199672374859, -75.91140396519404],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b6832e80414005b60fc8f43e2d2445f8.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f5558bbff2224dd6d27e172dd7abbf7 = L.circleMarker(
+                [45.408516003484415, -75.72436886783493],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5f5558bbff2224dd6d27e172dd7abbf7.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4dbdf6f6f1b0c70dae51dc3ea996549 = L.circleMarker(
+                [45.300102542836655, -75.87472956389219],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_a4dbdf6f6f1b0c70dae51dc3ea996549.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff0fa522c283d0357d94bcdd5a9e62bd = L.circleMarker(
+                [45.3110973880483, -75.8992884959928],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_ff0fa522c283d0357d94bcdd5a9e62bd.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e14e9c17ca9ecb9a7962933586e31ca = L.circleMarker(
+                [45.36432236022594, -75.74131267003413],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9e14e9c17ca9ecb9a7962933586e31ca.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_127bb07871c1e31ac77e4a52bdfa5d3f = L.circleMarker(
+                [45.4404128017211, -75.66909695134665],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_127bb07871c1e31ac77e4a52bdfa5d3f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0c9c80a3f2880d7baab449c14f90e87 = L.circleMarker(
+                [45.4089646975012, -75.63841973834074],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_e0c9c80a3f2880d7baab449c14f90e87.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3245f5ff6f90147389429cab8326e243 = L.circleMarker(
+                [45.427084500772665, -75.69132511014783],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3245f5ff6f90147389429cab8326e243.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d51a3eb75d2b0a06762dc6b27a3e3d1 = L.circleMarker(
+                [45.35505479952867, -75.7447693360255],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5d51a3eb75d2b0a06762dc6b27a3e3d1.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fdfe2d3f14577ddf8e17f4f70cd87170 = L.circleMarker(
+                [45.40471969338331, -75.69904525326336],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_fdfe2d3f14577ddf8e17f4f70cd87170.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d25e2e0ae551896641ac02dd09cdbce = L.circleMarker(
+                [45.27383749910539, -75.75686225210053],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2d25e2e0ae551896641ac02dd09cdbce.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5798395fe2146c1cec2fda66c2c7ef39 = L.circleMarker(
+                [45.39542661271051, -75.68274756687366],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_5798395fe2146c1cec2fda66c2c7ef39.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28ae4e056abdd1cb7e8aa261c169596e = L.circleMarker(
+                [45.27838900054445, -75.86267610242545],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_28ae4e056abdd1cb7e8aa261c169596e.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_173f4cfc140ffa0d637587bdb7642880 = L.circleMarker(
+                [45.43633729547443, -75.6779526190368],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_173f4cfc140ffa0d637587bdb7642880.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81c7434f0a7c5dad1169468427e0f66b = L.circleMarker(
+                [45.27666004047165, -75.86825558189149],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_81c7434f0a7c5dad1169468427e0f66b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_838b364b99c8474df06e4b9587e9c4c8 = L.circleMarker(
+                [45.30758641726918, -75.9167949281407],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_838b364b99c8474df06e4b9587e9c4c8.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_484cf94cc4dbd79b8fae8b838c65478b = L.circleMarker(
+                [45.35352166740214, -75.74646571132865],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_484cf94cc4dbd79b8fae8b838c65478b.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84d4d120d2987f306cb798ada1e679a9 = L.circleMarker(
+                [45.36523606056454, -75.71375171336389],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_84d4d120d2987f306cb798ada1e679a9.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4f7c2996233e5a3984b3c04da02ef40 = L.circleMarker(
+                [45.34762293568888, -75.73412293839326],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_b4f7c2996233e5a3984b3c04da02ef40.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a73b9b7f24342863dbc2b2359f24843 = L.circleMarker(
+                [45.400466521429664, -75.68691987930748],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_6a73b9b7f24342863dbc2b2359f24843.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49901284e6c9b7262491a34d72c5b31f = L.circleMarker(
+                [45.43350424389573, -75.63765958861781],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_49901284e6c9b7262491a34d72c5b31f.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3cca3fb63ea48893a0b679d5e955b514 = L.circleMarker(
+                [45.4001559022236, -75.68648076546495],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_3cca3fb63ea48893a0b679d5e955b514.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b68d88a1cd1264ea1c1116b1dc6b2df = L.circleMarker(
+                [45.39737758251676, -75.62549812689049],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_2b68d88a1cd1264ea1c1116b1dc6b2df.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9ca0ef7528e748d1fcce9a0125a09324 = L.circleMarker(
+                [45.37925722948408, -75.7319272444581],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_9ca0ef7528e748d1fcce9a0125a09324.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c67114f086061c99d6eca233a5c0d64 = L.circleMarker(
+                [45.39690533524634, -75.62491203729768],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_7c67114f086061c99d6eca233a5c0d64.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d11682c9a47e8e2f651cde07f8004786 = L.circleMarker(
+                [45.38025486194087, -75.73104158471396],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_d11682c9a47e8e2f651cde07f8004786.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_77f1ec58e20cbb7a840076680b4e4493 = L.circleMarker(
+                [45.40813564135992, -75.70659249380626],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_77f1ec58e20cbb7a840076680b4e4493.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eafdb9ecee6618a8287dd272ad34f05c = L.circleMarker(
+                [45.4339440433647, -75.67747356757931],
+                {"bubblingMouseEvents": true, "color": "#94A3B8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#94A3B8", "fillOpacity": 0.45, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_49e043ab869573be9c76182f2225c962);
+        
+    
+            circle_marker_eafdb9ecee6618a8287dd272ad34f05c.bindTooltip(
+                `<div>
+                     Reported shopping cart location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_49e043ab869573be9c76182f2225c962.addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+        
+    
+            var feature_group_91ce55caa87d54de1b769874773e2f6d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_27e0e5c6a1cefacab71342e91db1aa9b = L.circleMarker(
+                [45.26243613499288, -75.9360266120333],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_49e9ae65777d39c5894044381221cf44 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d57ef1d5e0efab14bd6e50e3e4683cea = $(`<div id="html_d57ef1d5e0efab14bd6e50e3e4683cea" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #2</b><br>Nearest reported location: 2.98 km</div>`)[0];
+                popup_49e9ae65777d39c5894044381221cf44.setContent(html_d57ef1d5e0efab14bd6e50e3e4683cea);
+            
+        
+
+        circle_marker_27e0e5c6a1cefacab71342e91db1aa9b.bindPopup(popup_49e9ae65777d39c5894044381221cf44)
+        ;
+
+        
+    
+    
+            circle_marker_27e0e5c6a1cefacab71342e91db1aa9b.bindTooltip(
+                `<div>
+                     Isolation ranking #2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4eda9ed3f1f9e41a5987ddb4d0316385 = L.circleMarker(
+                [45.48378044806406, -75.52064047348559],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_c70b3566cfdc4e8995fc391754760315 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2f1824cfa466017153f3c9ace9f61bd2 = $(`<div id="html_2f1824cfa466017153f3c9ace9f61bd2" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #3</b><br>Nearest reported location: 2.75 km</div>`)[0];
+                popup_c70b3566cfdc4e8995fc391754760315.setContent(html_2f1824cfa466017153f3c9ace9f61bd2);
+            
+        
+
+        circle_marker_4eda9ed3f1f9e41a5987ddb4d0316385.bindPopup(popup_c70b3566cfdc4e8995fc391754760315)
+        ;
+
+        
+    
+    
+            circle_marker_4eda9ed3f1f9e41a5987ddb4d0316385.bindTooltip(
+                `<div>
+                     Isolation ranking #3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_85147946ac2c0bf1da55c96b59d3d035 = L.circleMarker(
+                [45.33479007585056, -75.90765228884152],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_542f8a90d07f179d29add32cc5d9886e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b21a6b1fad9fc287f74a9ab118fa27dc = $(`<div id="html_b21a6b1fad9fc287f74a9ab118fa27dc" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #4</b><br>Nearest reported location: 2.43 km</div>`)[0];
+                popup_542f8a90d07f179d29add32cc5d9886e.setContent(html_b21a6b1fad9fc287f74a9ab118fa27dc);
+            
+        
+
+        circle_marker_85147946ac2c0bf1da55c96b59d3d035.bindPopup(popup_542f8a90d07f179d29add32cc5d9886e)
+        ;
+
+        
+    
+    
+            circle_marker_85147946ac2c0bf1da55c96b59d3d035.bindTooltip(
+                `<div>
+                     Isolation ranking #4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_559deb4607129777cf43d6c10201df14 = L.circleMarker(
+                [45.47175240315116, -75.45272924784636],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_4889f434125924932f96dccbc81fd976 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b2616ea4d975d9a66607bd8c9aa6c279 = $(`<div id="html_b2616ea4d975d9a66607bd8c9aa6c279" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #5</b><br>Nearest reported location: 2.40 km</div>`)[0];
+                popup_4889f434125924932f96dccbc81fd976.setContent(html_b2616ea4d975d9a66607bd8c9aa6c279);
+            
+        
+
+        circle_marker_559deb4607129777cf43d6c10201df14.bindPopup(popup_4889f434125924932f96dccbc81fd976)
+        ;
+
+        
+    
+    
+            circle_marker_559deb4607129777cf43d6c10201df14.bindTooltip(
+                `<div>
+                     Isolation ranking #5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f897ee22127f7ce1936877c036bdd588 = L.circleMarker(
+                [45.48702777211008, -75.47442047277491],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_dfacc3b9ec75ac87cd18c5a089f96634 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_898abac1a0d82fd30e9ce118cb88c13d = $(`<div id="html_898abac1a0d82fd30e9ce118cb88c13d" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #6</b><br>Nearest reported location: 2.40 km</div>`)[0];
+                popup_dfacc3b9ec75ac87cd18c5a089f96634.setContent(html_898abac1a0d82fd30e9ce118cb88c13d);
+            
+        
+
+        circle_marker_f897ee22127f7ce1936877c036bdd588.bindPopup(popup_dfacc3b9ec75ac87cd18c5a089f96634)
+        ;
+
+        
+    
+    
+            circle_marker_f897ee22127f7ce1936877c036bdd588.bindTooltip(
+                `<div>
+                     Isolation ranking #6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9aab7fba5b91d419437010108cdadd23 = L.circleMarker(
+                [45.26807201616262, -75.89300978415099],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_2613d9c11d7e01097dbec5cf7eaa195c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_840fda8d86cff2702853a8661d4e968e = $(`<div id="html_840fda8d86cff2702853a8661d4e968e" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #7</b><br>Nearest reported location: 2.16 km</div>`)[0];
+                popup_2613d9c11d7e01097dbec5cf7eaa195c.setContent(html_840fda8d86cff2702853a8661d4e968e);
+            
+        
+
+        circle_marker_9aab7fba5b91d419437010108cdadd23.bindPopup(popup_2613d9c11d7e01097dbec5cf7eaa195c)
+        ;
+
+        
+    
+    
+            circle_marker_9aab7fba5b91d419437010108cdadd23.bindTooltip(
+                `<div>
+                     Isolation ranking #7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7e1562393e8b4e231f6c4db93a4101f = L.circleMarker(
+                [45.373034377962426, -75.62038824634543],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_9607036df6f857e103ff583e2ce7dd69 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b351b4ed4baf23def5e6a5cdabd977d8 = $(`<div id="html_b351b4ed4baf23def5e6a5cdabd977d8" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #8</b><br>Nearest reported location: 1.88 km</div>`)[0];
+                popup_9607036df6f857e103ff583e2ce7dd69.setContent(html_b351b4ed4baf23def5e6a5cdabd977d8);
+            
+        
+
+        circle_marker_a7e1562393e8b4e231f6c4db93a4101f.bindPopup(popup_9607036df6f857e103ff583e2ce7dd69)
+        ;
+
+        
+    
+    
+            circle_marker_a7e1562393e8b4e231f6c4db93a4101f.bindTooltip(
+                `<div>
+                     Isolation ranking #8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa68299988e675912bf2b5c2c15064ff = L.circleMarker(
+                [45.44116302870537, -75.4977218713094],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_f82a52ea21f757ac5dc354d904c78a2b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e13cd598dccd99d3ae9c5d3a8863dc9e = $(`<div id="html_e13cd598dccd99d3ae9c5d3a8863dc9e" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #9</b><br>Nearest reported location: 1.57 km</div>`)[0];
+                popup_f82a52ea21f757ac5dc354d904c78a2b.setContent(html_e13cd598dccd99d3ae9c5d3a8863dc9e);
+            
+        
+
+        circle_marker_fa68299988e675912bf2b5c2c15064ff.bindPopup(popup_f82a52ea21f757ac5dc354d904c78a2b)
+        ;
+
+        
+    
+    
+            circle_marker_fa68299988e675912bf2b5c2c15064ff.bindTooltip(
+                `<div>
+                     Isolation ranking #9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_642e2f9ccd6b1f8d5c507fbfd41d3484 = L.circleMarker(
+                [45.4433370992927, -75.47789194374332],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D88B32", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_91ce55caa87d54de1b769874773e2f6d);
+        
+    
+        var popup_09864b7e69f3ed64c2f27a7860e63dbc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff1d4f492d90a1f666f45fc708a87161 = $(`<div id="html_ff1d4f492d90a1f666f45fc708a87161" style="width: 100.0%; height: 100.0%;"><b>Lone Wheel Rank #10</b><br>Nearest reported location: 1.57 km</div>`)[0];
+                popup_09864b7e69f3ed64c2f27a7860e63dbc.setContent(html_ff1d4f492d90a1f666f45fc708a87161);
+            
+        
+
+        circle_marker_642e2f9ccd6b1f8d5c507fbfd41d3484.bindPopup(popup_09864b7e69f3ed64c2f27a7860e63dbc)
+        ;
+
+        
+    
+    
+            circle_marker_642e2f9ccd6b1f8d5c507fbfd41d3484.bindTooltip(
+                `<div>
+                     Isolation ranking #10
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_91ce55caa87d54de1b769874773e2f6d.addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+        
+    
+            var feature_group_9b9453410cf35af726f1a3cf507d67ec = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_dcd4693bc8bcbe76f60be632fc27be24 = L.marker(
+                [45.16320815622694, -75.93891189286276],
+                {
+}
+            ).addTo(feature_group_9b9453410cf35af726f1a3cf507d67ec);
+        
+    
+            var icon_d5b756bc841aa57ddb35d83274ec7a1a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_982e4babc0333180dd5ce4244f20e046 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_d3b023e33c1f7a237015aa3e0134906d = $(`<div id="html_d3b023e33c1f7a237015aa3e0134906d" style="width: 100.0%; height: 100.0%;"><b>🏆 THE LONE WHEEL FRONTRUNNER</b><br>Nearest reported neighbour: 11.04 km<br>Distance is straight-line, not a travel route.</div>`)[0];
+                popup_982e4babc0333180dd5ce4244f20e046.setContent(html_d3b023e33c1f7a237015aa3e0134906d);
+            
+        
+
+        marker_dcd4693bc8bcbe76f60be632fc27be24.bindPopup(popup_982e4babc0333180dd5ce4244f20e046)
+        ;
+
+        
+    
+    
+            marker_dcd4693bc8bcbe76f60be632fc27be24.bindTooltip(
+                `<div>
+                     🏆 Lone Wheel Frontrunner
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dcd4693bc8bcbe76f60be632fc27be24.setIcon(icon_d5b756bc841aa57ddb35d83274ec7a1a);
+            
+    
+            var poly_line_aad1a336c162c7d669d25e27ca97c566 = L.polyline(
+                [[45.16320815622694, -75.93891189286276], [45.26243613499288, -75.9360266120333]],
+                {"bubblingMouseEvents": true, "color": "#D88B32", "dashArray": "7, 7", "dashOffset": null, "fill": false, "fillColor": "#D88B32", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9b9453410cf35af726f1a3cf507d67ec);
+        
+    
+            poly_line_aad1a336c162c7d669d25e27ca97c566.bindTooltip(
+                `<div>
+                     Straight-line separation: 11.04 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_9b9453410cf35af726f1a3cf507d67ec.addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+        
+    
+            var layer_control_722674332ae52afdf61e41cd73dcbde0_layers = {
+                base_layers : {
+                },
+                overlays :  {
+                    "All 214 Study Locations" : feature_group_49e043ab869573be9c76182f2225c962,
+                    "Top 10 Most Isolated" : feature_group_91ce55caa87d54de1b769874773e2f6d,
+                    "Lone Wheel Frontrunner" : feature_group_9b9453410cf35af726f1a3cf507d67ec,
+                },
+            };
+            let layer_control_722674332ae52afdf61e41cd73dcbde0 = L.control.layers(
+                layer_control_722674332ae52afdf61e41cd73dcbde0_layers.base_layers,
+                layer_control_722674332ae52afdf61e41cd73dcbde0_layers.overlays,
+                {
+  "position": "topleft",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_9e788bcb284c2f92ce9726d4fab303fc);
+
+        
+    
+            map_9e788bcb284c2f92ce9726d4fab303fc.fitBounds(
+                [[45.16320815622694, -75.93891189286276], [45.48702777211008, -75.45272924784636]],
+                {"maxZoom": 11, "padding": [30, 30]}
+            );
+        
+</script>
+</html>
