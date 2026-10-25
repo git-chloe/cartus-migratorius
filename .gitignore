@@ -1,0 +1,24 @@
+# Local and source archives: never commit private work or raw downloads.
+data/private/
+*.csv.gz
+*Original*.csv
+*Original*.geojson
+*.geoparquet
+*.parquet
+*.duckdb
+*.sqlite
+*.log
+.env
+.env.*
+*.pem
+.ipynb_checkpoints/
+__pycache__/
+.pytest_cache/
+.DS_Store
+# Private learning companions and editorial notebooks
+*How_I_Did_This*.pdf
+*How_I_Did_This*.md
+*Python_Cheatsheet*.pdf
+*Python_Cheatsheet*.md
+*PRIVATE*.ipynb
+*Original_Field_Notes*.geojson
